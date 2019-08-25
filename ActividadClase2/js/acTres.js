@@ -5,15 +5,17 @@ document.getElementById("btnAceptar").addEventListener('click', () => {  //
     div.innerHTML=secuencia(numSecuencia,x);
 })
 
-function secuencia(numSecuencia,x){
+function secuencia(numSecuencias,valorX){
     let resultado = 0;
-    let n = 0;
-    let f = 1;
-    for(let i = 1;i<=numSecuencia; i++){ 
-        resultado += Math.pow(x,n)/f;
-        n++;
-        f*=n;
+    let exponente = 0;
+    let factorial = 1;
+
+    for(let i = 1;i<=numSecuencias; i++){ 
+        resultado += Math.pow(valorX,exponente)/factorial;
+        exponente++;
+        factorial*=n;
     }
+    
     return resultado
 }
 
