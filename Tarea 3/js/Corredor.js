@@ -4,9 +4,12 @@ export default class Corredor{
         this._posicion = 0
         this._recorrer = [3,1,1,2,2,2]
     }
+    get posicion(){
+        return this._posicion
+    }
     correr(){
         this._posicion = this._posicion + this._recorrer[Math.trunc(Math.random()*6)]
-        console.log(  this._posicion)
+        
     }
     nuevaCarrera(){
         this._posicion = 0

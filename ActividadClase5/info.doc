@@ -1,0 +1,9 @@
+Crear una clase llamada Punto que me permita controlar un punto en un mapa cartesiano.
+El rango es de -100,-100 a 100,100.
+Por default lo puntos empiezan en 0,0. Se puede ajustar la X y la Y, ademas debe existir un metodo to String() que devuelva la 
+forma conocida de un punto.
+--------> (3,2)
+
+permita calcular la distancia a otro punto
+
+distancia = raiz( (x2-x1)^2 + (y2-y1)^2 )

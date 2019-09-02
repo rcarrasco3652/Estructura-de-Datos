@@ -6,28 +6,28 @@ class Main {
         let corredorDos = new Corredor(2)
 
         document.getElementById("btnActivar").addEventListener('click', () => {
-            if(corredorUno._posicion<100){
-                corredorUno.correr()
-            }else{
-                alert(`El corredor 1 gano la carrera`)
-                return
+            while (corredorUno.posicion < 100 && corredorDos.posicion < 100) {
+                corredorUno.correr();
+                corredorDos.correr();
+
+                console.log(`Corredor 1: ${corredorUno.posicion}   Corredor 2: ${corredorDos.posicion}`)
             }
-            if(corredorDos._posicion<100){
-                corredorDos.correr()
-            }else{
-                alert(`El corredor 2 gano la carrera`)
-                return
+            if (corredorUno.posicion >= 100 && corredorDos.posicion >= 100) {
+                console.log("Es un empate")
+            }else if (corredorUno.posicion >= 100) {
+                console.log(`El corredor 1 gano!!!`)
+            } else if (corredorDos.posicion >= 100) {
+                console.log(`El corredor 2 gano!!!`)
             }
-            
-            
+
         })
 
 
         document.getElementById("btnReiniciar").addEventListener('click', () => {
-            
-            corredorUno.nuevaCarrera()  
+
+            corredorUno.nuevaCarrera()
             corredorDos.nuevaCarrera()
-            
+
         })
     }
 }
