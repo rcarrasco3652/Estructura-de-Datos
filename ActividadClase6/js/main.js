@@ -18,8 +18,9 @@ class Main {
             let p = new Punto(xUno,yUno);
             puntos.push(p);
             // this._puntos.push(new Punto(xUno,yUno));
-            console.log(puntos)
-            return sumaDistancias(puntos)
+            // console.log(puntos)
+
+            console.log(sumaDistancias(puntos))
         }
 
         function sumaDistancias(puntos){
@@ -27,14 +28,11 @@ class Main {
             for(let i = 0; i < puntos.length -1; i++){
                 sum += puntos[i].distancia(puntos[i+1])
             }
+            return sum
         }
 
-        function distancia() {
-            let distancia = Math.sqrt(
-                Math.pow((posDos.x - posUno.x), 2) + Math.pow((posDos.y - posUno.y), 2)
-                );
-            return distancia;
-        }
     }
 }
 let m = new Main;
+
+

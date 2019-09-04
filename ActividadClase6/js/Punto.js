@@ -29,5 +29,12 @@ export default class Punto {
         let imprimir = `La posicion del punto es (${this._x},${this._y})`
         return imprimir
     }
+    
+    distancia(punto) {
+        let distancia = Math.sqrt(
+            Math.pow((punto.x - this._x), 2) + Math.pow((punto.y - this._y), 2)
+            );
+        return distancia;
+    }
 
 }
