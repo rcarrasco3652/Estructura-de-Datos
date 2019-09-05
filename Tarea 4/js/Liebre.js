@@ -24,11 +24,14 @@ export default class Liebre extends Corredor {
         } else if (recorrido <= 85) { // SALTO PEQUEÑO
             this._posicion += 1;
 
-        } else if (recorrido <= 100){ //RESBALON PEQUEÑO
+        } else{ //RESBALON PEQUEÑO
             this._posicion -= 2;
         }
 
         return recorrido;
+    }
+    reset() {
+        this._posicion = 0;
     }
 
 }

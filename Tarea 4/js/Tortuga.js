@@ -19,11 +19,14 @@ export default class Tortuga extends Corredor {
         } else if (recorrido <= 70) { // RESVALON
             this._posicion -= 6;
 
-        } else if (recorrido <= 100) { // PASO LENTO
+        } else{ // PASO LENTO
             this._posicion += 1;
 
         }
 
         return recorrido
+    }
+    reset() {
+        this._posicion = 0;
     }
 }
