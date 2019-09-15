@@ -3,7 +3,7 @@ export default class Elevador{
     constructor(totalPisos, capacidad){
         this._totalPisos=totalPisos;
         this._capacidad=capacidad;
-        this._puerta=false;//cerrada
+        this._puerta=false;
         this._pisoActual=0;
     }
 
