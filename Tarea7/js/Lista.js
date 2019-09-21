@@ -1,27 +1,27 @@
 import Articulo from "./Articulo.js"
 
-export default class Lista{
-    constructor(tabla){
+export default class Lista {
+    constructor(tabla) {
         this._tabla = tabla;
-        this._articulos = [];   
+        this._articulos = [];
     }
-    get articulos(){
+    get articulos() {
         return this._articulos;
     }
 
-    _agregarArticulo(objArticulo){
+    _agregarArticulo(objArticulo) {
         this._articulos.push(objArticulo);
     }
 
-    _eliminarArticulo(posicion){
-        this._articulos.splice(posicion,1);
+    _eliminarArticulo(posicion) {
+        this._articulos.splice(posicion, 1);
     }
 
-    _actualizarTabla(){
-        // this._tabla.innerHTML = "";
+    _actualizarTabla() {
+        this._tabla.innerHTML = "";
 
 
-        for(let i = 0; i < this._articulos.length; i++){
+        for (let i = 0; i < this._articulos.length; i++) {
 
             let row = this._tabla.insertRow(-1);
 
@@ -34,13 +34,10 @@ export default class Lista{
         }
     }
 
-    _editarArticulo(posicion, nuevArticulo){
+    _editarArticulo(posicion, nuevArticulo) {
         this._articulos[posicion].nombre = nuevArticulo.nombre;
         this._articulos[posicion].precio = nuevArticulo.precio;
         this._articulos[posicion].contenido = nuevArticulo.contenido;
         this._articulos[posicion].descripcion = nuevArticulo.descripcion;
-
-        console.log(this._articulos);
-        
     }
 }

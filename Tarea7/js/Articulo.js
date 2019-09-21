@@ -1,7 +1,5 @@
-
-
 export default class Articulo {
-    constructor(objArticulo){
+    constructor(objArticulo) {
         this._codigo = objArticulo.codigo;
         this._nombre = objArticulo.nombre;
         this._precio = objArticulo.precio;
@@ -10,35 +8,35 @@ export default class Articulo {
 
         this.getToString();
     }
-    get codigo(){
+    get codigo() {
         return this._codigo;
     }
-    get nombre(){
+    get nombre() {
         return this._nombre;
     }
-    get precio(){
+    get precio() {
         return this._precio;
     }
-    get contenido(){
+    get contenido() {
         return this._contenido;
     }
-    get descripcion(){
+    get descripcion() {
         return this._descripcion
     }
-    set nombre(nombre){
+    set nombre(nombre) {
         this._nombre = nombre;
     }
-    set precio(precio){
+    set precio(precio) {
         this._precio = precio;
     }
-    set contenido(contenido){
+    set contenido(contenido) {
         this._contenido = contenido;
     }
-    set descripcion(descripcion){
+    set descripcion(descripcion) {
         this._descripcion = descripcion;
     }
 
-    getToString(){
+    getToString() {
         console.log(`codigo: ${this._codigo}
         nombre: ${this._nombre} 
         precio: ${this._precio} 
