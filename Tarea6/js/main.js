@@ -10,9 +10,14 @@ var serpientes = new Serpiente();
 
 var jugadores = [jugador1, jugador2, jugador3];
 document.getElementById("btnAvanzar").addEventListener('click', () => {
+    let texto = document.getElementById("texto")
     for (let i = 0; i < jugadores.length; i++) {
+        if (jugadores[i].posicion >= 100) {
+            console.log(`${jugadores[i].nombre} gano este juego`)
+            break;
+        }
+
         jugadores[i].avanzar();
-        
 
         //Revisar si le toco escaleras
         switch (jugadores[i].posicion) {
@@ -53,13 +58,14 @@ document.getElementById("btnAvanzar").addEventListener('click', () => {
                 break;
         }
 
-        console.log(jugadores[i].nombre +" = "+ jugadores[i].posicion);
+        console.log(jugadores[i].nombre + " = " + jugadores[i].posicion);
+
     }
 
 
 
 
 
-    
+
 
 });
