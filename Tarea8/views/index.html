@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Torneos</title>
+    <title>Abarrotes los gemelos</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/main.css">
@@ -34,10 +34,6 @@
             <div class="justify-content-end">
                 <button type="button" class="btn btn-warning ml-2" data-toggle="modal"
                     data-target="#modalEditar">Editar</button>
-            </div>
-            <div class="justify-content-end">
-                <button type="button" class="btn btn-success ml-2" data-toggle="modal"
-                    data-target="#modalBuscar">Buscar</button>
             </div>
 
         </div>
@@ -194,37 +190,6 @@
                         <button type="button" class="btn btn-secondary" data-dismiss="modal"
                             id="cerrarEditar">Cerrar</button>
                         <button type="button" class="btn btn-warning" id="editarArticulo">Editar articulo</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- Modal para Buscar articulo -->
-        <div class="modal fade" id="modalBuscar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Buscar articulo</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- Inicia formulario borrar articulo -->
-                        <form class="needs-validation" novalidate id="formBuscar">
-                            <div class="form-group">
-                                <label for="nombreABuscar">Codigo del articulo</label>
-                                <input type="number" id="articuloABuscar" placeholder="7504516130567"
-                                    class="form-control" required>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                            id="cerrarBuscar">Cerrar</button>
-                        <button type="button" class="btn btn-success" id="buscarArticulo">Buscar articulo</button>
                     </div>
                 </div>
             </div>

@@ -22,7 +22,7 @@ class Main {
 
 
 
-            // this._lista._OrdenarLista();
+
             document.getElementById('cerrarModal').click(); // Cerrar modal despues de agregar articulo
             document.getElementById('formArticulo').reset(); // Borrar el formulario despues de que se cierre
         });
@@ -61,9 +61,6 @@ class Main {
         document.getElementById('buscarArticulo').addEventListener('click', () => {
             let pos = this._buscarArticulo(document.getElementById('articuloABuscar').value);
             console.log(this._lista.articulos[pos]);
-
-            document.getElementById('cerrarBuscar').click(); // Cerrar modal despues de agregar articulo
-            document.getElementById('formBuscar').reset(); // Borrar el formulario despues de que se cierre
         });
     }
 
