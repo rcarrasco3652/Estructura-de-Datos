@@ -20,11 +20,10 @@ class Main {
             this._lista._agregarArticulo(articulo);
             this._lista._actualizarTabla();
 
-
-
-
             document.getElementById('cerrarModal').click(); // Cerrar modal despues de agregar articulo
             document.getElementById('formArticulo').reset(); // Borrar el formulario despues de que se cierre
+
+            alert('Se agrego tu articulo');
         });
 
         // Eliminar un articulo
@@ -36,6 +35,8 @@ class Main {
             document.getElementById('formEliminar').reset(); // Borrar el formulario despues de que se cierre
 
             this._lista._actualizarTabla();
+
+            alert('Se elimino tu articulo');
         });
 
         // Editar articulo
@@ -55,12 +56,16 @@ class Main {
 
             document.getElementById('cerrarEditar').click(); // Cerrar modal despues de agregar articulo
             document.getElementById('formEditar').reset(); // Borrar el formulario despues de que se cierre
+        
+            alert('Tu articulo se actualizo');
         });
 
         // Buscar articulo
         document.getElementById('buscarArticulo').addEventListener('click', () => {
             let pos = this._buscarArticulo(document.getElementById('articuloABuscar').value);
             console.log(this._lista.articulos[pos]);
+
+            alert('Busqueda exitosa');
         });
     }
 
