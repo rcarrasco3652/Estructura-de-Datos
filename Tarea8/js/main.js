@@ -29,8 +29,8 @@ class Main {
 
         // Eliminar un articulo
         document.getElementById('eliminarArticulo').addEventListener('click', () => {
-            let posicion = this._buscarArticulo(document.getElementById('articuloAEliminar').value);
-            this._lista._eliminarArticulo(posicion);
+            // let posicion = this._buscarArticulo(document.getElementById('articuloAEliminar').value);
+            this._lista._eliminarArticulo(this._buscarArticulo(document.getElementById('articuloAEliminar').value));
 
             document.getElementById('cerrarEliminar').click(); // Cerrar modal despues de agregar articulo
             document.getElementById('formEliminar').reset(); // Borrar el formulario despues de que se cierre
@@ -65,7 +65,7 @@ class Main {
     }
 
     _buscarArticulo(codigo) {
-        for (let i = 0; i < this._lista.articulos.length; i++) {
+        for (let i = 0; i < this._lista.contadorVector; i++) {
             if (this._lista.articulos[i].codigo == codigo) {
                 return i;
             }
