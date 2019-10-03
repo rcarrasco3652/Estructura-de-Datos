@@ -33,7 +33,7 @@ export default class Lista {
         for(posicion; posicion<this._contadorVector; posicion++){
             this._articulos[posicion] = this._articulos[posicion + 1];
         }
-        this._articulos[this._contadorVector-1] = ""
+        this._articulos[this._contadorVector-1] = null;
 
 
         this._contadorVector--;
@@ -74,12 +74,24 @@ export default class Lista {
                         let a = this._articulos[i]
                         this._articulos[i] = this._articulos[j]
                         this._articulos[j] = a
+
+
                     }
                 }
             }
         }
     }
+
+    
+    _buscarArticulo(codigo) {
+        for (let i = 0; i < this._contadorVector; i++) {
+            if (this._articulos[i].codigo == codigo) {
+                return i;
+            }
+        }
+    }
 }
+
 
 
 

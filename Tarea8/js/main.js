@@ -29,7 +29,7 @@ class Main {
         // Eliminar un articulo
         document.getElementById('eliminarArticulo').addEventListener('click', () => {
             // let posicion = this._buscarArticulo(document.getElementById('articuloAEliminar').value);
-            this._lista._eliminarArticulo(this._buscarArticulo(document.getElementById('articuloAEliminar').value));
+            this._lista._eliminarArticulo(this._lista._buscarArticulo(document.getElementById('articuloAEliminar').value));
 
             document.getElementById('cerrarEliminar').click(); // Cerrar modal despues de agregar articulo
             document.getElementById('formEliminar').reset(); // Borrar el formulario despues de que se cierre
@@ -48,7 +48,7 @@ class Main {
                 descripcion: document.getElementById('descripcionAArticulo').value
             }
 
-            let posicion = this._buscarArticulo(document.getElementById('articuloAEditarr').value)
+            let posicion = this._lista._buscarArticulo(document.getElementById('articuloAEditarr').value)
 
             this._lista._editarArticulo(posicion, objArticulo);
             this._lista._actualizarTabla();
@@ -62,20 +62,14 @@ class Main {
 
         // Buscar articulo
         document.getElementById('buscarArticulo').addEventListener('click', () => {
-            let pos = this._buscarArticulo(document.getElementById('articuloABuscar').value);
+            let pos = this._lista._buscarArticulo(document.getElementById('articuloABuscar').value);
             console.log(this._lista.articulos[pos]);
 
             alert('Busqueda exitosa');
         });
     }
 
-    _buscarArticulo(codigo) {
-        for (let i = 0; i < this._lista.contadorVector; i++) {
-            if (this._lista.articulos[i].codigo == codigo) {
-                return i;
-            }
-        }
-    }
+    
 }
 
 let m = new Main();
