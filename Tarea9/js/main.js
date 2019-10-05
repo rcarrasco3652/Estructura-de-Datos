@@ -63,14 +63,21 @@ class Main {
 
         // Buscar articulo
         document.getElementById('buscarArticulo').addEventListener('click', () => {
-            let pos = this._lista._buscarArticulo(document.getElementById('articuloABuscar').value);
-            console.log(this._lista.articulos[pos]);
+            let lienzo = document.getElementById('articuloBuscado')
+            this._lista._imprimirArticuloEncontrado(
+                this._lista._buscarArticulo(document.getElementById('articuloABuscar').value),
+                lienzo
+            );
 
-            alert('Busqueda exitosa');
+            document.getElementById('cerrarBuscar').addEventListener('click', () => {
+                lienzo.innerHTML = ""
+            }) // Cerrar modal despues de agregar articulo y borrar el lienzo
+
         });
 
         // Cambiar el orden
         document.getElementById('ordenamiento').addEventListener('change', () => {
+
             switch (document.getElementById('ordenamiento').value) {
                 case "defecto":
                     this._lista._actualizarTabla();
