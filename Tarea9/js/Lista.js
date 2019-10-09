@@ -110,15 +110,13 @@ export default class Lista {
             articuloTemporal = articuloTemporal.siguiente;
         }
     }
-    _imprimirArticuloEncontrado(articulo,lienzo){
-        lienzo.innerHTML = ""
-        lienzo.innerHTML += `
+    _imprimirArticuloEncontrado(articulo){
+        return `
         Codigo: ${articulo.codigo} <br>
         Nombre: ${articulo.nombre} <br>
         Precio: ${articulo.precio} <br>
         Contenido: ${articulo.contenido}gr <br>
         Descripcion: ${articulo.descripcion}`
-
     }
 
     _articuloAnterior(codigo){

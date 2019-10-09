@@ -66,9 +66,10 @@ class Main {
         // Buscar articulo
         document.getElementById('buscarArticulo').addEventListener('click', () => {
             let lienzo = document.getElementById('articuloBuscado')
-            this._lista._imprimirArticuloEncontrado(
-                this._lista._buscarArticulo(document.getElementById('articuloABuscar').value),
-                lienzo
+
+            lienzo.innerHTML = this._lista._imprimirArticuloEncontrado(
+                this._lista._buscarArticulo(document.getElementById('articuloABuscar').value)
+                
             );
 
             document.getElementById('cerrarBuscar').addEventListener('click', () => {
