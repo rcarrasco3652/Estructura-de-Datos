@@ -6,7 +6,7 @@ export default class Articulo {
         this._contenido = objArticulo.contenido;
         this._descripcion = objArticulo.descripcion;
         this._siguiente = null;
-        this._anterior = null;
+
 
         this.getToString();
     }

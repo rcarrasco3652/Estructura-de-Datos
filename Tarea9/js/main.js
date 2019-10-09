@@ -17,8 +17,8 @@ class Main {
             };
 
             let articulo = new Articulo(objArticulo);
-            this._lista._agregarArticulo(articulo);
-            this._lista._actualizarTabla();
+            this._lista.agregarArticulo(articulo);
+            
 
             document.getElementById('cerrarModal').click(); // Cerrar modal despues de agregar articulo
             document.getElementById('formArticulo').reset(); // Borrar el formulario despues de que se cierre
@@ -29,12 +29,12 @@ class Main {
         // Eliminar un articulo
         document.getElementById('eliminarArticulo').addEventListener('click', () => {
             // let posicion = this._buscarArticulo(document.getElementById('articuloAEliminar').value);
-            this._lista._eliminarArticulo(document.getElementById('articuloAEliminar').value);
+            this._lista.eliminarArticulo(document.getElementById('articuloAEliminar').value);
 
             document.getElementById('cerrarEliminar').click(); // Cerrar modal despues de agregar articulo
             document.getElementById('formEliminar').reset(); // Borrar el formulario despues de que se cierre
 
-            this._lista._actualizarTabla();
+            
 
             alert('Se elimino tu articulo');
         });
@@ -52,7 +52,9 @@ class Main {
             // let posicion = this._lista._buscarArticulo(document.getElementById('articuloAEditarr').value)
 
             this._lista._editarArticulo(objArticulo);
-            this._lista._actualizarTabla();
+            
+
+            
 
 
             document.getElementById('cerrarEditar').click(); // Cerrar modal despues de agregar articulo

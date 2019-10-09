@@ -11,30 +11,42 @@ export default class Lista {
         return this._articulos;
     }
 
-    _agregarArticulo(objArticulo) {
+    agregarArticulo(objArticulo) {
         if(this._primerArticulo == null){
             this._primerArticulo = objArticulo;
             this._ultimoArticulo = objArticulo;
         }else{
-            let reserva = this._ultimoArticulo;
             this._ultimoArticulo.siguiente = objArticulo;
             this._ultimoArticulo = objArticulo;
-            this._ultimoArticulo.anterior = reserva;
         }
         
+        
+        this._actualizarTabla();
         console.log(this._primerArticulo);
         
     }
 
-    _eliminarArticulo(codigo) {
-        
+    eliminarArticulo(codigo) {
+        let articuloAterior = this._articuloAnterior(codigo);
         let articuloEliminar = this._buscarArticulo(codigo);
-        let articuloTemporal = articuloEliminar.anterior;
-
-        articuloTemporal.siguiente = articuloEliminar.siguiente;
         
+        articuloAterior.siguiente = articuloEliminar.siguiente;
+        
+        this._actualizarTabla();
         console.log(this._primerArticulo);
 
+    }
+
+    _editarArticulo(nuevArticulo) {
+        let articuloActual = this._buscarArticulo(nuevArticulo.codigo)
+
+
+        articuloActual.nombre = nuevArticulo.nombre;
+        articuloActual.precio = nuevArticulo.precio;
+        articuloActual.contenido = nuevArticulo.contenido;
+        articuloActual.descripcion = nuevArticulo.descripcion;
+
+        this._actualizarTabla();
     }
 
     _actualizarTabla() {
@@ -55,32 +67,35 @@ export default class Lista {
         }
     }
 
-    _editarArticulo(nuevArticulo) {
-        let articuloActual = this._buscarArticulo(nuevArticulo.codigo)
-
-
-        articuloActual.nombre = nuevArticulo.nombre;
-        articuloActual.precio = nuevArticulo.precio;
-        articuloActual.contenido = nuevArticulo.contenido;
-        articuloActual.descripcion = nuevArticulo.descripcion;
-    }
+    
 
     _ordenInverso(){
+        // FALTA TERMINAR ESTE METODO :C  (Seguimos trabajando en eso, pasiencia porfavor)
+
         this._tabla.innerHTML = "";
-        let articuloTemporal = this._ultimoArticulo;
-
-        while (articuloTemporal != null) {
-
-            let row = this._tabla.insertRow(-1);
-
-            row.insertCell(0).innerHTML = articuloTemporal.codigo;
-            row.insertCell(1).innerHTML = articuloTemporal.nombre;
-            row.insertCell(2).innerHTML = articuloTemporal.precio;
-            row.insertCell(3).innerHTML = articuloTemporal.contenido + "gr";
-            row.insertCell(4).innerHTML = articuloTemporal.descripcion;
+        let codigo 
+        let articulo 
+        while (articulo.siguiente.codigo != codigo) {
             
-            articuloTemporal = articuloTemporal.anterior;
+
+            
         }
+
+
+        // let articuloTemporal = this._ultimoArticulo;
+
+        // while (articuloTemporal != null) {
+
+        //     let row = this._tabla.insertRow(-1);
+
+        //     row.insertCell(0).innerHTML = articuloTemporal.codigo;
+        //     row.insertCell(1).innerHTML = articuloTemporal.nombre;
+        //     row.insertCell(2).innerHTML = articuloTemporal.precio;
+        //     row.insertCell(3).innerHTML = articuloTemporal.contenido + "gr";
+        //     row.insertCell(4).innerHTML = articuloTemporal.descripcion;
+            
+        //     articuloTemporal = articuloTemporal.anterior;
+        // }
     }
 
     
@@ -104,6 +119,18 @@ export default class Lista {
         Contenido: ${articulo.contenido}gr <br>
         Descripcion: ${articulo.descripcion}`
 
+    }
+
+    _articuloAnterior(codigo){
+        let articuloTemporal = this._primerArticulo;
+
+        while (articuloTemporal.siguiente != null) {
+            if(articuloTemporal.siguiente.codigo == codigo){
+                return articuloTemporal
+            }
+
+            articuloTemporal = articuloTemporal.siguiente;
+        }
     }
 }
 
