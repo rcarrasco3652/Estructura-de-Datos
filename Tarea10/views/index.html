@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Abarrotes los gemelos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="../css/main.css"> -->
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row jumbotron">
+            <h1>Registro de articulos</h1>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-5">
+                <h2 class="lContactos">Lista de articulos</h2>
+            </div>
+
+            <!-- Boton que activa el modal para el formulario de contactos -->
+            <div class="justify-content-end">
+                <button type="button" class="btn btn-primary" data-toggle="modal"
+                    data-target="#modalArticulo">Agregar</button>
+            </div>
+            <div class="justify-content-end">
+                <button type="button" class="btn btn-danger ml-2" data-toggle="modal"
+                    data-target="#modalEliminar">Eliminar</button>
+            </div>
+            <div class="justify-content-end">
+                <button type="button" class="btn btn-warning ml-2" data-toggle="modal"
+                    data-target="#modalEditar">Editar</button>
+            </div>
+            <div class="justify-content-end">
+                <button type="button" class="btn btn-success ml-2" data-toggle="modal"
+                    data-target="#modalBuscar">Buscar</button>
+            </div>
+            <div class="justify-content-end">
+                    <select class="form-control ml-2" id="ordenamiento">
+                            <option>-- ordenamiento --</option>
+                            <option value="defecto">Orden por defecto</option>
+                            <option value="inverso">Orden inverso</option>
+                          </select>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <table class="table col-9">
+                <thead>
+                    <tr>
+                        <th scope="col">Codigo</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Contenido</th>
+                        <th scope="col">Descripción</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaArticulos">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tbody>
+            </table>
+        </div>
+
+
+        <!-- Modal para agregar articulo -->
+        <div class="modal fade" id="modalArticulo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Datos del articulo</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Inicia formulario articulo -->
+                        <form class="needs-validation" novalidate id="formArticulo">
+                            <div class="form-group">
+                                <label for="codigoArticulo">Codigo:</label>
+                                <input type="number" id="codigoArticulo" placeholder="7504516130567"
+                                    class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="nombreArticulo">Nombre:</label>
+                                <input type="text" id="nombreArticulo" placeholder="Lechita de la buena"
+                                    class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="precioArticulo">Precio:</label>
+                                <input type="number" id="precioArticulo" placeholder="$850.00" class="form-control"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contenidoArticulo">Contenido:</label>
+                                <input type="number" id="contenidoArticulo" placeholder="800ml" class="form-control"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="descripcionArticulo">Descripcion:</label>
+                                <input type="text" id="descripcionArticulo" placeholder="Leche entera lala pasteurisada"
+                                    class="form-control" required>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                            id="cerrarModal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" id="agregarArticulo">Agregar articulo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal para eliminar articulo -->
+        <div class="modal fade" id="modalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Borrar articulo</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Inicia formulario borrar articulo -->
+                        <form class="needs-validation" novalidate id="formEliminar">
+                            <div class="form-group">
+                                <label for="nombreEliminar">Codigo del articulo</label>
+                                <input type="number" id="articuloAEliminar" placeholder="7504516130567"
+                                    class="form-control" required>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                            id="cerrarEliminar">Cerrar</button>
+                        <button type="button" class="btn btn-danger" id="eliminarArticulo">Eliminar articulo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal para modificar articulo -->
+        <div class="modal fade" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Editar articulo</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Inicia formulario borrar articulo -->
+                        <form class="needs-validation" novalidate id="formEditar">
+                            <div class="form-group">
+                                <label for="nombreEliminar">Codigo del articulo</label>
+                                <input type="number" id="articuloAEditarr" placeholder="7504516130567"
+                                    class="form-control" required>
+                            </div>
+                            <p>Ingresa los nuevos datos del producto</p>
+                            <div class="form-group">
+                                <label for="nombreArticulo">Nombre:</label>
+                                <input type="text" id="nombreAArticulo" placeholder="Lechita de la buena"
+                                    class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="precioArticulo">Precio:</label>
+                                <input type="number" id="precioAArticulo" placeholder="$850.00" class="form-control"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contenidoArticulo">Contenido:</label>
+                                <input type="number" id="contenidoAArticulo" placeholder="800ml" class="form-control"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="descripcionArticulo">Descripcion:</label>
+                                <input type="text" id="descripcionAArticulo"
+                                    placeholder="Leche entera lala pasteurisada" class="form-control" required>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                            id="cerrarEditar">Cerrar</button>
+                        <button type="button" class="btn btn-warning" id="editarArticulo">Editar articulo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+         <!-- Modal para Buscar articulo -->
+         <div class="modal fade" id="modalBuscar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+         <div class="modal-dialog" role="document">
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <h5 class="modal-title" id="exampleModalLabel">Buscar articulo</h5>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                     </button>
+                 </div>
+                 <div class="modal-body">
+                     <!-- Inicia formulario borrar articulo -->
+                     <form class="needs-validation" novalidate id="formBuscar">
+                         <div class="form-group">
+                            <label for="nombreABuscar">Codigo del articulo</label>
+                            <input type="number" id="articuloABuscar" placeholder="7504516130567"
+                                 class="form-control" required>                             
+                         </div>
+                     </form>
+                     <div id="articuloBuscado">
+
+                     </div>
+                 </div>
+                 <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                         id="cerrarBuscar">Cerrar</button>
+                     <button type="button" class="btn btn-success" id="buscarArticulo">Buscar articulo</button>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="../js/main.js" type="module"></script>
+</body>
+
+</html>

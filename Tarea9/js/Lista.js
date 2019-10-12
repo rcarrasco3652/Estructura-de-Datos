@@ -71,31 +71,42 @@ export default class Lista {
 
     _ordenInverso(){
         // FALTA TERMINAR ESTE METODO :C  (Seguimos trabajando en eso, pasiencia porfavor)
+        let articuloTemporal = this._primerArticulo;
+        let contador = 0;
+        while (articuloTemporal != null) {
+            contador++
 
-        this._tabla.innerHTML = "";
-        let codigo 
-        let articulo 
-        while (articulo.siguiente.codigo != codigo) {
-            
-
-            
+            articuloTemporal = articuloTemporal.siguiente;
         }
 
 
-        // let articuloTemporal = this._ultimoArticulo;
+        
+        let ultimoArticulo = this._ultimoArticulo;
 
-        // while (articuloTemporal != null) {
+        
+        this._tabla.innerHTML = "";
+        for(let i = 0; i<contador;i++){
+            articuloTemporal = this._primerArticulo;
+            let row = this._tabla.insertRow(-1);
 
-        //     let row = this._tabla.insertRow(-1);
+            row.insertCell(0).innerHTML = ultimoArticulo.codigo;
+            row.insertCell(1).innerHTML = ultimoArticulo.nombre;
+            row.insertCell(2).innerHTML = ultimoArticulo.precio;
+            row.insertCell(3).innerHTML = ultimoArticulo.contenido + "gr";
+            row.insertCell(4).innerHTML = ultimoArticulo.descripcion;
 
-        //     row.insertCell(0).innerHTML = articuloTemporal.codigo;
-        //     row.insertCell(1).innerHTML = articuloTemporal.nombre;
-        //     row.insertCell(2).innerHTML = articuloTemporal.precio;
-        //     row.insertCell(3).innerHTML = articuloTemporal.contenido + "gr";
-        //     row.insertCell(4).innerHTML = articuloTemporal.descripcion;
-            
-        //     articuloTemporal = articuloTemporal.anterior;
-        // }
+            if(articuloTemporal == ultimoArticulo){
+                return;
+            }else{
+                
+                while (articuloTemporal.siguiente.codigo != ultimoArticulo.codigo) {
+                    articuloTemporal = articuloTemporal.siguiente;
+                }
+                ultimoArticulo = articuloTemporal
+            }
+
+        }
+        
     }
 
     
@@ -131,38 +142,3 @@ export default class Lista {
         }
     }
 }
-
-
-    // _ordenarArticulos(){
-    //     for(let k = 0; k<this._contadorVector;k++){
-    //         for(let i = 0; i<this._contadorVector;i++){
-    //             for(let j = 0; j<this._contadorVector;j++){
-                    
-    //                 if(this._articulos[i].codigo < this._articulos[j].codigo){
-    //                     let a = this._articulos[i]
-    //                     this._articulos[i] = this._articulos[j]
-    //                     this._articulos[j] = a
-
-
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
-
-
-
-// for(let k=0; k<tamaño.del.vector;k++){
-//     for(let i = 0;i<tamaño.del.vector; i++){
-
-//         for(let j = i+1; j<tamaño.del.vector; j++){
-
-//             if(vector[i].codigo > vector[j].codigo){
-
-//                 let b = vetor[i]
-//                 vector[i] = vector[j]
-//                 vector[j] = b
-//             }
-//         }
-//     }
-// }
