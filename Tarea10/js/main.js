@@ -17,13 +17,13 @@ class Main {
             };
 
             let articulo = new Articulo(objArticulo);
-            this._lista._agregarArticulo(articulo);
-            this._lista._actualizarTabla();
+            this._lista.agregarArticulo(articulo);
+            
 
             document.getElementById('cerrarModal').click(); // Cerrar modal despues de agregar articulo
             document.getElementById('formArticulo').reset(); // Borrar el formulario despues de que se cierre
 
-            alert('Se agrego tu articulo');
+            
         });
 
         // Eliminar un articulo
