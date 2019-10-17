@@ -31,14 +31,37 @@ export default class Lista {
     }
 
     _eliminarArticulo(codigo) {
-
         let articuloEliminar = this._buscarArticulo(codigo);
-        let articuloTemporal = articuloEliminar.anterior;
+        if (articuloEliminar){
+            if(codigo == this._primerArticulo.codigo){
+                if(this._primerArticulo.siguiente ==null)
+                {
+                    this._primerArticulo = this._ultimoArticulo=null;
+                    console.log(this._ultimoArticulo);
+                    console.log(this._primerArticulo);
+                }
+                else
+                {
+                    this._primerArticulo = articuloEliminar.siguiente
+                    this._primerArticulo.anterior = null
+                }
+            
+            }else if(codigo == this._ultimoArticulo.codigo ){
+                
+                this._ultimoArticulo = articuloEliminar.anterior
+                this._ultimoArticulo.siguiente = null
 
-        articuloEliminar.siguiente.anterior = articuloTemporal
-        articuloTemporal.siguiente = articuloEliminar.siguiente;
+            }else{
 
-        console.log(this._primerArticulo);
+                //console.log("SI ENTRO")
+                let articuloTemporal = articuloEliminar.anterior;
+        
+                articuloEliminar.siguiente.anterior = articuloTemporal
+                articuloTemporal.siguiente = articuloEliminar.siguiente;
+        
+                console.log(this._primerArticulo);
+            }
+        }
 
     }
 
@@ -140,22 +163,25 @@ export default class Lista {
             this._ultimoArticulo = articulo;
         } else {
             
-            while (articuloAux.siguiente != null) {
+            var insertado=false;
+            while (articuloAux != null && !insertado) {
                 
-                if (articuloAux.codigo < articulo.codigo) {
-                    articulo.siguiente = articuloAux.siguiente;
-                    articulo.anterior = articuloAux;
+                if (articuloAux.codigo > articulo.codigo) {
+                    insertado=true;
+                    articulo.siguiente = articuloAux;
+                    articulo.anterior = articuloAux.anterior;
 
-                    articuloAux.siguiente.anterior = articulo;
-                    articuloAux.siguiente = articulo;
+                    articuloAux.anterior.siguiente = articulo;
+                    articuloAux.anterior = articulo;
                 }
 
                 articuloAux = articuloAux.siguiente;
             }
             console.log(this._primerArticulo)
+            
         }
 
-        this._ultimoArticulo = articuloAux;
+        
     }
 }
 
